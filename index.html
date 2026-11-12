@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#08090b">
+  <meta name="description" content="A minimalist personal assistant for everyday life.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>JARVIS</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">J</span><div><strong>JARVIS</strong><small>PERSONAL ASSISTANT</small></div></div>
+      <button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙</button>
+    </header>
+
+    <section class="hero">
+      <div class="orb"><div class="orb-core"></div></div>
+      <p class="eyebrow" id="status">SYSTEM READY</p>
+      <h1>What can I help<br>you with?</h1>
+      <p class="sub">Your day, a little more organized.</p>
+    </section>
+
+    <section class="quick-actions" aria-label="Quick actions">
+      <button class="action" data-prompt="Help me plan my day"><span>◷</span>Plan my day</button>
+      <button class="action" data-prompt="Give me a quick study plan"><span>▤</span>Study</button>
+      <button class="action" data-prompt="Help me organize my goals"><span>◇</span>Goals</button>
+    </section>
+
+    <section class="workspace">
+      <div class="section-head"><h2>Assistant</h2><span class="live-dot">● READY</span></div>
+      <div class="chat" id="chat" aria-live="polite">
+        <div class="bubble assistant">Hello. I'm ready when you are. Ask me something, or try “add a reminder to study at 6.”</div>
+      </div>
+      <form id="chatForm" class="composer">
+        <input id="message" autocomplete="off" placeholder="Message JARVIS..." aria-label="Message JARVIS">
+        <button type="button" class="mic" id="micBtn" aria-label="Use voice input">🎙</button>
+        <button class="send" aria-label="Send message">↑</button>
+      </form>
+      <p class="hint" id="voiceHint">Voice input depends on browser support and microphone permission.</p>
+    </section>
+
+    <section class="tools">
+      <div class="section-head"><h2>Daily tools</h2><span class="muted">ON THIS DEVICE</span></div>
+      <div class="tool-grid">
+        <article class="tool-card"><div class="tool-icon">✓</div><h3>Tasks</h3><p id="taskCount">No tasks yet</p><button class="text-btn" id="addTask">Add task +</button></article>
+        <article class="tool-card"><div class="tool-icon">✎</div><h3>Quick note</h3><p id="notePreview">Save something to remember.</p><button class="text-btn" id="addNote">Write note +</button></article>
+      </div>
+      <div class="task-list" id="taskList"></div>
+      <div class="note-list" id="noteList"></div>
+    </section>
+    <footer>JARVIS CONCEPT · YOUR DATA STAYS ON THIS DEVICE</footer>
+  </main>
+
+  <dialog id="settingsDialog">
+    <form method="dialog" class="dialog-head"><div><span class="eyebrow">PREFERENCES</span><h2>Settings</h2></div><button class="icon-btn">✕</button></form>
+    <label for="endpoint">Private AI server URL <span class="muted">(optional)</span></label>
+    <input id="endpoint" class="setting-input" placeholder="https://your-server.example/api/chat">
+    <p class="hint">Connect a trusted AI backend to enable full AI answers. Keep API keys on the server—never paste secret keys into this app.</p>
+    <label class="toggle-row"><input type="checkbox" id="speechToggle" checked> Speak assistant replies</label>
+    <button id="saveSettings" class="primary-btn" type="button">Save settings</button>
+    <p class="hint">Without a server, JARVIS still handles basic tasks and notes locally.</p>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "JARVIS Personal Assistant",
+  "short_name": "JARVIS",
+  "description": "A minimalist daily assistant",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#08090b",
+  "theme_color": "#08090b",
+  "icons": []
+}
